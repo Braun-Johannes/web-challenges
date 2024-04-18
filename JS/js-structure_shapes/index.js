@@ -4,22 +4,38 @@ console.clear();
 
 const root = document.getElementById("root");
 
-const circle = document.createElement("div");
-circle.classList.add("circle");
-circle.addEventListener("click", () => {
-  circle.style.backgroundColor = getRandomColor();
-});
+const classNames = ["circle", "square", "pentagon"];
 
-const square = document.createElement("div");
-square.classList.add("square");
-square.addEventListener("click", () => {
-  square.style.backgroundColor = getRandomColor();
-});
+function Shape(className) {
+  const all = document.createElement("className");
+  all.classList.add("??");
+  all.addEventListener("click", () => {
+    all.style.backgroundColor = getRandomColor();
+  });
+  return all;
+}
 
-const pentagon = document.createElement("div");
-pentagon.classList.add("pentagon");
-pentagon.addEventListener("click", () => {
-  pentagon.style.backgroundColor = getRandomColor();
+classNames.forEach((className) => {
+  root.append(Shape(className));
 });
+// const circle = document.createElement("div");
+// circle.classList.add("circle");
+// circle.addEventListener("click", () => {
+//   circle.style.backgroundColor = getRandomColor();
+// });
 
-root.append(circle, square, pentagon);
+// const square = document.createElement("div");
+// square.classList.add("square");
+// square.addEventListener("click", () => {
+//   square.style.backgroundColor = getRandomColor();
+// });
+
+// const pentagon = document.createElement("div");
+// pentagon.classList.add("pentagon");
+// pentagon.addEventListener("click", () => {
+//   pentagon.style.backgroundColor = getRandomColor();
+// });
+
+// root.append(circle, square, pentagon);
+
+// root.append(Shape("circle"), Shape("pentagon"), Shape("square"));
