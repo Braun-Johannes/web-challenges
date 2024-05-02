@@ -14,10 +14,6 @@ export default function App() {
     setTags([...tags, newTag]);
   }
 
-  // function handleDeleteTag(deletedTag) {
-  //   setTags(tags.filter((tag) => tag !== deletedTag));
-  // }
-
   function handleDeleteTag(deletedTag) {
     setTags(tags.filter((tag) => tag !== deletedTag));
   }
