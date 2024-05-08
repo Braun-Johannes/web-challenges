@@ -1,10 +1,20 @@
 import Link from "next/link";
 import { introduction } from "../data";
 import { volumes } from "../data";
+import { useRouter } from "next/router";
 
 export default function HomePage() {
-  function getRandomElement(array) {
-    return array[Math.floor(Math.random() * array.length)];
+  const router = useRouter();
+
+  function getRandomVolumeUrl() {
+    const randomIndex = Math.floor(Math.random() * volumes.length);
+    const randomVolumeSlug = volumes[randomIndex].slug;
+    return `/volumes/${randomVolumeSlug}`;
+  }
+
+  function navigateToRandomVolume() {
+    const randomVolumeUrl = getRandomVolumeUrl();
+    router.push(randomVolumeUrl);
   }
 
   return (
@@ -16,13 +26,14 @@ export default function HomePage() {
         return (
           <ul key={volume.slug}>
             <li>
-              {volume.title}{" "}
+              {volume.title}
+              <br />
               <Link href={`/volumes/${volume.slug}`}>Details</Link>
             </li>
           </ul>
         );
       })}
-      <button>Random Volume</button>
+      <button onClick={navigateToRandomVolume}>Random Volume</button>
     </div>
   );
 }
