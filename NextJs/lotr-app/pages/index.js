@@ -2,6 +2,7 @@ import Link from "next/link";
 import { introduction } from "../data";
 import { volumes } from "../data";
 import { useRouter } from "next/router";
+import styled from "styled-components";
 
 export default function HomePage() {
   const router = useRouter();
