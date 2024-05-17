@@ -12,4 +12,26 @@ export default async function handler(request, response) {
     }
     return response.status(200).json(fish);
   }
+
+  if (request.method === "PUT") {
+    try {
+      const updatedFish = request.body;
+      await Product.findByIdAndUpdate(id, updatedFish);
+
+      response.status(200).json({ status: "Fish successfully updated." });
+    } catch (error) {
+      console.error(error);
+      response.status(400).json({ error: error.message });
+    }
+  }
+
+  if (request.method === "DELETE") {
+    try {
+      await Product.findByIdAndDelete(id);
+      response.status(200).json({ status: "Product successfully deleted" });
+    } catch (error) {
+      console.error(error);
+      response.status(400).json({ error: error.message });
+    }
+  }
 }
